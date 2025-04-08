@@ -1,0 +1,38 @@
+<!-- product.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Details</title>
+</head>
+<body>
+
+  <div id="product-details"></div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const productName = params.get('name');
+
+    fetch('products.json')
+      .then(res => res.json())
+      .then(products => {
+        const product = products.find(p => p.name === productName);
+        const container = document.getElementById('product-details');
+        
+        if (product) {
+          const imageName = `products/image_${product.name.replace(/\s+/g, '').toLowerCase()}.png`;
+
+          container.innerHTML = `
+            <h1>${product.name}</h1>
+            <img src="${imageName}" alt="${product.name}" style="width:150px">
+            <p><strong>Price:</strong> $${product.price}</p>
+            <a href="index.html">← Back to products</a>
+          `;
+        } else {
+          container.innerHTML = `<p>Product not found.</p>`;
+        }
+      });
+  </script>
+
+</body>
+</html>

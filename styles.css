@@ -1,6 +1,6 @@
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 ul {
   list-style-type: none;
@@ -9,11 +9,9 @@ ul {
   overflow: hidden;
   background-color: #333;
 }
-
 li {
   float: left;
 }
-
 li a, .dropButton {
   display: inline-block;
   color: white;
@@ -21,15 +19,12 @@ li a, .dropButton {
   padding: 14px 16px;
   text-decoration: none;
 }
-
 li a:hover, .dropDown:hover .dropButton {
   background-color: red;
 }
-
 li.dropDown {
   display: inline-block;
 }
-
 .dropDownContent {
   display: none;
   position: absolute;
@@ -38,7 +33,6 @@ li.dropDown {
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
-
 .dropDownContent a {
   color: black;
   padding: 12px 16px;
@@ -46,9 +40,22 @@ li.dropDown {
   display: block;
   text-align: left;
 }
-
-.dropDownContent a:hover {background-color: #f1f1f1;}
-
+.dropDownContent a:hover {
+  background-color: #f1f1f1;
+}
 .dropDown:hover .dropDownContent {
   display: block;
+}
+.product {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  display: inline-block;
+  text-align: center;
+}
+img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
 }
