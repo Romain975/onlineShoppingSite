@@ -4,8 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <title>Product Details</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="navBar">
+    <ul>
+        <li><a>Menu 1</a></li>
+        <li class="dropDown">
+            <a href="javascript:void(0)" class="dropButton">Dropdown <pan class="arrow">▼</pan></a>
+            <div class="dropDownContent">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </li>
+        <li><a>Menu 3</a></li>
+    </ul>
+</div>
+
 
   <div id="product-details"></div>
 
@@ -23,10 +39,14 @@
           const imageName = `products/image_${product.name.replace(/\s+/g, '').toLowerCase()}.png`;
 
           container.innerHTML = `
-            <h1>${product.name}</h1>
-            <img src="${imageName}" alt="${product.name}" style="width:150px">
-            <p><strong>Price:</strong> $${product.price}</p>
-            <a href="index.html">← Back to products</a>
+            <div class="leftSide">
+              <a href="index.html">← Back to products</a>
+              <h1>${product.name}</h1>
+              <img src="${imageName}" alt="${product.name}" style="width:400px">
+            </div>
+            <div class="rightSide">
+               <p class="price"><strong>Price:</strong> $${product.price}</p>
+            </div>
           `;
         } else {
           container.innerHTML = `<p>Product not found.</p>`;

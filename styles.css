@@ -46,6 +46,15 @@ li.dropDown {
 .dropDown:hover .dropDownContent {
   display: block;
 }
+.arrow {
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+  transform: rotate(-90deg);
+}
+.dropDown:hover .arrow {
+  transform: rotate(0deg);
+}
 .product {
   border: 1px solid #ccc;
   padding: 10px;
@@ -54,8 +63,42 @@ li.dropDown {
   display: inline-block;
   text-align: center;
 }
-img {
+.product img {
   width: 100px;
   height: 100px;
   object-fit: contain;
+}
+#product-details {
+  margin-top: 50px;
+  justify-content: center;
+  display: flex;
+  height: 100vh; /* full screen height */
+
+}
+.leftSide a {
+  color: gray;
+  text-decoration: none;
+}
+.leftSide a:hover {
+  text-decoration: underline;
+}
+.price {
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  width: 200px;
+  font-size: 20px;
+}
+.rightSide {
+  padding-left: 100px;
+}
+/* On desktop: child divs side by side */
+.product-details {
+  flex-direction: row;
+}
+/* On small screens: stack child divs vertically */
+@media (max-width: 768px) {
+  .product-details {
+    flex-direction: column;
+  }
 }
