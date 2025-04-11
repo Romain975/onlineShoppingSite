@@ -2,10 +2,63 @@ body {
   margin: 0;
   padding: 0;
 }
+.navBar {
+  height: 50px;
+  position: relative;
+  display: flex;
+  background-color: #333;
+}
+#searchContainer {
+  height: 50px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 30%;
+}
+#results {
+  top: 0;
+  margin-top: 300px;
+  background-color: white;
+  position: absolute;
+  margin-top: 50px;
+  width: 100%;
+  box-shadow: 0px 8px 16px 8px rgba(0,0,0,0.2);
+}
+#results li {
+  width: 100%;
+  display: block;
+  background-color: #f1f1f1;
+  color: #272727;
+  cursor: pointer;
+}
+#results li a:hover {
+  background-color: #d2d2d2;
+  transition: 0.6s;
+}
+#results li a {
+  width: 100%;
+  text-align: left;
+  color: #272727;
+}
+#results span {
+  display: block;
+  background-color: #f1f1f1;
+  color: #272727;
+  padding: 16px;
+  text-align: left;
+}
+#searchInput {
+  font-size: 16px;
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
 ul {
+  display: inline-block;
   list-style-type: none;
   margin: 0;
   padding: 0;
+  width: 30%;
   overflow: hidden;
   background-color: #333;
 }
@@ -16,11 +69,13 @@ li a, .dropButton {
   display: inline-block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 16px 16px;
   text-decoration: none;
+  cursor: pointer;
 }
 li a:hover, .dropDown:hover .dropButton {
-  background-color: red;
+  background-color: #272727;
+  transition: 0.6;
 }
 li.dropDown {
   display: inline-block;
@@ -54,6 +109,53 @@ li.dropDown {
 }
 .dropDown:hover .arrow {
   transform: rotate(0deg);
+}
+.navBar button.bag {
+  background-color: #333;
+  margin-left: auto;
+  border: none;
+  cursor: pointer;
+}
+.navBar button.profile {
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: #333;
+  border: none;
+  cursor: pointer;
+  height: 100%;
+}
+.navBar button.bag:hover {
+  background-color: #272727;
+  transition: 0.6s;
+}
+.navBar button.profile:hover {
+  background-color: #272727;
+  transition: 0.6s;
+}
+.navBar div.profileDiv div.options {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  padding: 10px;
+  height: 100%;
+  right: 0;
+  width: 100px;
+  height: 76px;
+  box-shadow: 0px 0px 16px 8px rgba(0,0,0,0.2);
+}
+.navBar div.profileDiv div.options a {
+  position: relative;
+  color: #272727;
+  text-decoration: none;
+  padding: 10px;
+  display: inline-block;
+}
+.navBar div.profileDiv:hover div.options {
+  position: absolute;
+  display: block;
+}
+#product-list {
+  padding-top: 5px;
 }
 .product {
   border: 1px solid #ccc;
@@ -90,7 +192,8 @@ li.dropDown {
   font-size: 20px;
 }
 .rightSide {
-  padding-left: 100px;
+  padding-left: 50px;
+  max-width: 400px;
 }
 /* On desktop: child divs side by side */
 .product-details {

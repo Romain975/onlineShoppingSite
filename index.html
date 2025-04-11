@@ -19,6 +19,20 @@
             </li>
             <li><a>Menu 3</a></li>
         </ul>
+
+        <div id="searchContainer">
+          <input type="text" id="searchInput" placeholder="Search by name...">
+          <ul id="results"></ul>
+        </div>
+
+        <button class="bag"><img src="assets/shopping_cart_checkout_20dp_FFF_FILL0_wght400_GRAD0_opsz20.svg"></button>
+        <div class="profileDiv">
+          <button class="profile"><img src="assets/account_circle_24dp_FFF_FILL0_wght400_GRAD0_opsz24.svg"></button>
+          <div class="options">
+            <a>Preferences</a>
+            <a>About us</a>
+          </div>
+        </div>
     </div>
     
     <div id="product-list"></div>
@@ -46,6 +60,60 @@
             container.appendChild(link);
           });
         });
+
+        let products = [];
+      
+      // SearchBar
+      const searchInput = document.getElementById('searchInput');
+      const resultsList = document.getElementById('results');
+      const searchContainer = document.getElementById('searchContainer');
+
+      // Load product data
+      fetch('products.json')
+        .then(res => res.json())
+        .then(data => {
+          products = data;
+        });
+
+      // Show first 5 on focus
+      searchInput.addEventListener('focus', () => {
+        displayResults(products.slice(0, 5), products.length > 5);
+      });
+
+      // Filtered results on input
+      searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.toLowerCase();
+        const filtered = products.filter(p =>
+          p.name.toLowerCase().includes(searchTerm)
+        );
+        displayResults(filtered.slice(0, 5), filtered.length > 5);
+      });
+
+      // Hide results when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!searchContainer.contains(e.target)) {
+          resultsList.innerHTML = '';
+        }
+      });
+
+      function displayResults(items, showMore = false) {
+        resultsList.innerHTML = '';
+
+        items.forEach(item => {
+          const li = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = `product.html?name=${encodeURIComponent(item.name)}`;
+          link.textContent = `${item.name} - $${item.price}`;
+          li.appendChild(link);
+          resultsList.appendChild(li);
+        });
+
+        if (showMore) {
+          const moreLi = document.createElement('li');
+          moreLi.innerHTML = `<span class="more-link">More...</span>`;
+          resultsList.appendChild(moreLi);
+        }
+      }
     </script>
 </body>
 </html>

@@ -1,11 +1,32 @@
 [
-    {
-      "name": "iPhone",
-      "price": 999
-    },
-    {
-      "name": "Samsung Galaxy",
-      "price": 799
-    }
-  ]
-  
+  {
+    "name": "iPhone",
+    "price": 999,
+    "description": "This product is not very good due its low quality and high cost."
+  },
+  {
+    "name": "Samsung Galaxy",
+    "price": 799,
+    "description": "This product is capable to accomplish a lot. For example you can call, play and text at the same time."
+  },
+  {
+    "name": "T-Pex",
+    "price": 0.99,
+    "description": "This product is a need if you want to erase your errors."
+  },
+  {
+    "name": "laptop",
+    "price": 1190,
+    "description": "Very usefull for coding, playing and ordering some food."
+  },
+  {
+    "name": "usb-stick",
+    "price": 10,
+    "description": "Just more storage for your files."
+  },
+  {
+    "name": "calculator",
+    "price": 80,
+    "description": "Is calculating too complex for you ? Then you are on the right page !"
+  }
+]
